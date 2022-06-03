@@ -54,11 +54,20 @@ public:
     double getPrice() {
         return Price;
     }
+
+    void delist() {
+        string name = Ticker + " (VOID)";
+        setTicker(name);
+        setPrice(0.00);
+        setTVL(0.00);
+    }
 };
+
 
 int main()
 {
     Token ethereum = Token("ETH", "Ethereum", 68400000000, "Keccak-256", 1765.42);
+    ethereum.delist();
     std::cout << "Profile" << std::endl;
     std::cout << "-------" << std::endl;
     std::cout << "Ticker: " << ethereum.getTicker() << std::endl;
